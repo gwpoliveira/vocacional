@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz Vocacional{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Quiz Vocacional</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group">
+            <label for="student_name">Nome:</label>
+            <input type="text" id="student_name" name="student_name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="student_email">Email:</label>
+            <input type="email" id="student_email" name="student_email" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+{% endblock %}

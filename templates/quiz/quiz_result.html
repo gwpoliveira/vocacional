@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Resultado do Quiz{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Resultado do Quiz</h1>
+    <p>Nome: {{ result.student_name }}</p>
+    <p>Email: {{ result.student_email }}</p>
+    <p>Área recomendada: {{ result.area.name }}</p>
+    <p>Pontuação: {{ result.score }}</p>
+</div>
+{% endblock %}
