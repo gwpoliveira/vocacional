@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-{% block title %}Take Quiz{% endblock %}
+{% block title %}Quiz Vocacional{% endblock %}
 
 {% block content %}
-    <h1>Take Quiz</h1>
-    <form method="post">
+    <h1 style="margin-bottom: 40px">Quiz Vocacional</h1>
+    <form method="post" style="margin-bottom: 20px">
         {% csrf_token %}
         {{ student_form|crispy }}
         {{ question_form|crispy }}
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Entrar</button>
     </form>
 {% endblock %}
