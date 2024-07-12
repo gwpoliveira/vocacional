@@ -1,4 +1,3 @@
-# quiz/models.py
 from django.db import models
 
 class Area(models.Model):
@@ -17,6 +16,7 @@ class Question(models.Model):
 class Option(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     text = models.CharField(max_length=255)
+    area = models.ForeignKey(Area, on_delete=models.CASCADE, default=1)  # Supondo que a área com ID 1 seja "Default"
 
     def __str__(self):
         return self.text
@@ -27,7 +27,7 @@ class Result(models.Model):
     whatsapp = models.CharField(max_length=20)
     school_name = models.CharField(max_length=255)
     area = models.ForeignKey(Area, on_delete=models.CASCADE)
-    score = models.IntegerField()
+    score = models.FloatField()  # Armazena a pontuação em porcentagem
 
     def __str__(self):
-        return f'{self.student_name} - {self.area.name} ({self.score})'
+        return f'{self.student_name} - {self.area.name} ({self.score}%)'
