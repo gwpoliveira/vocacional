@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),  # URL para a página inicial
-    path('quiz/', include('quiz.urls')),  # Inclui as URLs do app 'quiz'
+    path('', views.home, name='home'),  # Adiciona a URL para a página inicial
+    path('quiz/', include('quiz.urls')),
 ]

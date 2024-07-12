@@ -1,3 +1,4 @@
+# quiz/admin.py
 from django.contrib import admin
 from .models import Area, Question, Option, Result
 
@@ -11,8 +12,8 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ('text',)
 
 class OptionAdmin(admin.ModelAdmin):
-    list_display = ('text', 'question', 'area')
-    list_filter = ('question', 'area')
+    list_display = ('text', 'question')
+    list_filter = ('question',)
     search_fields = ('text',)
 
 class ResultAdmin(admin.ModelAdmin):
