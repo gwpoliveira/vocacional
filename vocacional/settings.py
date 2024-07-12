@@ -10,6 +10,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -96,3 +97,12 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+JAZZMIN_SETTINGS = {
+    'site_title': 'Vocacional',
+    'site_header': 'Vocacional',
+    'site_logo': 'logo.png',
+    'login_logo': 'logo1.png',
+    'welcome_sign': 'Seja bem vindo! - Vocacional Instituto Magister',
+    'copyright': 'Somos Todos Nerds',
+}
