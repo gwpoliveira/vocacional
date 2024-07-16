@@ -9,19 +9,19 @@ def take_quiz(request):
         student_form = StudentInfoForm(request.POST)
         if question_form.is_valid() and student_form.is_valid():
             scores = {area.id: 0 for area in Area.objects.all()}
-            total_questions = questions.count()
-
             for question in questions:
-                option_id = question_form.cleaned_data.get(f'question_{question.id}')
-                if option_id:
-                    option = Option.objects.get(id=option_id)
-                    scores[option.area.id] += 1
+                option_id = question_form.cleaned_data[f'question_{question.id}']
+                option = Option.objects.get(id=option_id)
+                scores[option.area.id] += 1
 
             max_area_id = max(scores, key=scores.get)
             max_area = Area.objects.get(id=max_area_id)
+            total_questions = len(questions)
+            max_score = scores[max_area_id]
+            percentage_score = (max_score / total_questions) * 100
 
-            # Calcula a pontuação em porcentagem
-            score_percentage = (scores[max_area_id] / total_questions) * 100
+            # Formatar score para duas casas decimais
+            formatted_score = round(percentage_score, 2)
 
             result = Result(
                 student_name=student_form.cleaned_data['student_name'],
@@ -29,7 +29,7 @@ def take_quiz(request):
                 whatsapp=student_form.cleaned_data['whatsapp'],
                 school_name=student_form.cleaned_data['school_name'],
                 area=max_area,
-                score=score_percentage
+                score=formatted_score
             )
             result.save()
             return redirect('quiz_result', result_id=result.id)

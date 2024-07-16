@@ -14,7 +14,26 @@ class QuestionForm(forms.Form):
             )
 
 class StudentInfoForm(forms.Form):
-    student_name = forms.CharField(label='Nome', max_length=255, required=True)
-    student_email = forms.EmailField(label='Email', required=True)
-    whatsapp = forms.CharField(label='Whatsapp', max_length=20, required=True)
-    school_name = forms.CharField(label='Nome da Escola', max_length=255, required=False)
+    student_name = forms.CharField(
+        label='Nome',
+        max_length=255,
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    student_email = forms.EmailField(
+        label='Email',
+        required=True,
+        widget=forms.EmailInput(attrs={'class': 'form-control'})
+    )
+    whatsapp = forms.CharField(
+        label='Whatsapp',
+        max_length=20,
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    school_name = forms.CharField(
+        label='Nome da Escola',
+        max_length=255,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
