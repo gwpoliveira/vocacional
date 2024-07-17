@@ -1,5 +1,5 @@
-from pathlib import Path
 import os
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -89,15 +89,16 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    os.path.join(BASE_DIR, 'static'),
 ]
 
-# Media files (uploads)
+# Media files (Uploads)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
