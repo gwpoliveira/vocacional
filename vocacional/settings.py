@@ -114,3 +114,4 @@ JAZZMIN_SETTINGS = {
     'welcome_sign': 'Seja bem vindo! - Vocacional Instituto Magister',
     'copyright': 'Somos Todos Nerds',
 }
+#
