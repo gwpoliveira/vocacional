@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-default-key'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'vocacional.grupomagister.online']
 
 INSTALLED_APPS = [
     'jazzmin',
@@ -89,18 +89,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# Media files (Uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -114,4 +110,3 @@ JAZZMIN_SETTINGS = {
     'welcome_sign': 'Seja bem vindo! - Vocacional Instituto Magister',
     'copyright': 'Somos Todos Nerds',
 }
-#
