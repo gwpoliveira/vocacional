@@ -1,0 +1,12 @@
+<!-- templates/quiz/plotly_chart.html -->
+<div id="plotly-chart"></div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+    var data = [{
+        x: ['Área 1', 'Área 2', 'Área 3'],
+        y: [65, 59, 80],
+        type: 'bar'
+    }];
+
+    Plotly.newPlot('plotly-chart', data);
+</script>

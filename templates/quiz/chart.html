@@ -1,0 +1,33 @@
+<!-- templates/quiz/chart.html -->
+{% extends "base.html" %}
+
+{% block title %}Gráfico de Resultados por Área{% endblock %}
+
+{% block content %}
+<h1>Gráfico de Resultados por Área</h1>
+<canvas id="myChart" width="400" height="200"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ areas|safe }},
+            datasets: [{
+                label: 'Número de Resultados',
+                data: {{ pontuacoes|safe }},
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}
